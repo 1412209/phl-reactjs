@@ -1,4 +1,3 @@
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import { sidebarWidth, defaultPadding } from "../variables.jsx";
 
 const styles = (theme) => ({
@@ -31,67 +30,19 @@ const styles = (theme) => ({
 		flexGrow: 1,
 		display: 'flex',
 		alignItems: 'center',
-		paddingLeft: defaultPadding,
+		paddingLeft: 0,
 		paddingRight: defaultPadding
 	},
 	search: {
-		position: 'relative',
-		borderRadius: 2,
-		backgroundColor: "rgba(255,255,225,.15)",
-		transition: "all ease .4s",
-		'&:hover': {
-			backgroundColor: "rgba(255,255,225,.25)",
-		},
 		margin: 0,
 		marginRight: 30,
 		flexGrow: 1,
 		width: 'auto',
 		maxWidth: 600
 	},
-	searchWrapIcon: {
-		width: 39,
-		height: '100%',
-		position: 'absolute',
-		pointerEvents: 'none',
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	searchIcon: {
-		transition: "all ease .4s",
-		width: 20,
-		height: 20,
-		opacity: 1,
-		"&$arrowActive": {
-			opacity: 0
-		}
-	},
-	arrowIcon: {
-		transition: "all ease .4s",
-		width: 20,
-		height: 20,
-		opacity: 0,
-		"&$arrowActive": {
-			opacity: 1
-		}
-	},
-	arrowActive: {
-		transform: "rotate(180deg)"
-	},
 	defaultIcon: {
 		width: 22,
 		height: 22
-	},
-	inputRoot: {
-		color: '#fff',
-		width: '100%'
-	},
-	inputInput: {
-		padding: "2px 2px 2px 39px",
-		fontSize: 13,
-		height: 33,
-		transition: "all ease .4s",
-		width: '100%'
 	},
 	sectionDesktop: {
 		display: 'flex',

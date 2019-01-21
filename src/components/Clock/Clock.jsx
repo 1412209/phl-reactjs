@@ -6,9 +6,9 @@ const styles = {
 	clock: {
 		padding: "9px 13px",
 		fontSize: 20,
-    	marginLeft: "1rem",
-    	backgroundColor: 'rgba(255,255,255,.08)',
-    	borderRadius: 2
+		marginLeft: "1rem",
+		backgroundColor: 'rgba(255,255,255,.08)',
+		borderRadius: 2
 	}
 };
 
@@ -37,7 +37,7 @@ class Clock extends React.Component {
 	}
 	cleanTime = number => {
 		number += "";
-		if (number.length == 1)
+		if (number.length === 1)
 			return "0"+number;
 		return number;
 	}

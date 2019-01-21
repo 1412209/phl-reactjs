@@ -3,7 +3,7 @@ import { sidebarWidth, defaultPadding } from "../variables.jsx";
 const customerStyle = {
 	sidebar_content: {
 		display: 'flex',
-		flexWrap: 'wrap' 
+		flexWrap: 'wrap'
 	},
 	sidebar: {
 		width: sidebarWidth,
@@ -16,7 +16,8 @@ const customerStyle = {
 	},
 	overlay: {
 		backgroundPosition: "center",
-		backgroundSize: "cover"
+		backgroundSize: "cover",
+		minHeight: '100vh'
 	}
 }
 
