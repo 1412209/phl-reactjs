@@ -8,7 +8,6 @@ const styles = {
 		backgroundColor: 'rgba(0,0,0,.96)',
 		width: 320,
 		borderRadius: 2,
-		padding: 15,
 		color: "#fff"
 	}
 };
@@ -17,6 +16,13 @@ class Dropdown extends React.Component {
 	state = {
 		anchorEl: null,
 	};
+
+	componentDidMount() {
+		if (this.props.handleRef) this.props.handleRef(this);
+	}
+	componentWillUnmount() {
+		if (this.props.handleRef) this.props.handleRef(undefined);
+	}
 
 	handleClick = event => {
 		this.setState({
@@ -30,8 +36,14 @@ class Dropdown extends React.Component {
 		});
 	};
 
+	clodePaper() {
+		this.setState({
+			anchorEl: null,
+		});
+	};
+
 	render() {
-		const { classes, className, anchorOrigin, transformOrigin } = this.props;
+		const { classes, className } = this.props;
 		const { anchorEl } = this.state;
 		const open = Boolean(anchorEl);
 
