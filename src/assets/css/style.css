@@ -28,7 +28,7 @@ html * {
     -moz-osx-font-smoothing: grayscale;
     font-size: 13px;
 }
-body {
+body, html {
     background-color: #EEEEEE;
     color: #3C4858;
     margin: 0;

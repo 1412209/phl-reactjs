@@ -28,6 +28,7 @@ class Header extends Component {
 		this.dropdownTasks = null;
 		this.dropdownApps = null;
 		this.state = {
+			scrolled: false
 		};
 	}
 
@@ -43,8 +44,17 @@ class Header extends Component {
 		if(this.dropdownApps) this.dropdownApps.clodePaper();
 	}
 
+	componentDidMount = () => {
+		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	handleScroll = event => {
+		if (window.scrollY > 50) this.setState({scrolled:true});
+		else this.setState({scrolled:false});
+	}
+
 	render() {
-		const { classes } = this.props;
+		const { classes, className } = this.props;
 
 		const renderNotifications = (
 			<PaperNotifications handleItemClick={this.closePaperNotifications} />
@@ -59,8 +69,8 @@ class Header extends Component {
 		)
 
 		return (
-			<div className={classes.root}>
-				<AppBar position="static" className={classes.appBar}>
+			<div className={className + " " + classes.root}>
+				<AppBar position="static" className={classes.appBar+" "+(this.state.scrolled?classes.appBarScrolled:"")}>
 					<Toolbar className={classes.toolbar}>
 						<Typography variant="h1" color="inherit" noWrap>
 							<NavLink className={classes.title} to="/">Phú Hoàng Land</NavLink>

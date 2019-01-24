@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles, createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Header from "components/Header/Header.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 
+import customerRoutes from "routes/customer.jsx";
 import customerStyle from "assets/jss/layouts/customerStyle.jsx";
 
-const theme = createMuiTheme({
-	typography: {
-		useNextVariants: true,
-		fontFamily: "inherit"
-	},
-});
+const switchRoutes = (
+	<Switch>
+		{customerRoutes.map((prop, key) => {
+			if (prop.redirect)
+				return <Redirect from={prop.path} to={prop.to} key={key} />;
+			return <Route path={prop.path} exact={!!prop.exact} component={prop.component} key={key} />;
+		})}
+	</Switch>
+);
+
 
 class Customer extends Component {
 	constructor(props) {
@@ -32,18 +38,16 @@ class Customer extends Component {
 		var {classes} = this.props;
 		return (
 			<div style={{backgroundImage: `url(${this.getThemeImage()})`}} className={classes.overlay}>
-				<MuiThemeProvider theme={theme}>
-					<Header></Header>
-					<div className={classes.sidebar_content}>
-						<div className={classes.sidebar}>
-							<Sidebar></Sidebar>
-						</div>
-						<div className={classes.content}>
-							<div>Content</div>
-							<Footer></Footer>
-						</div>
+				<Header className={classes.header}></Header>
+				<div className={classes.sidebar_content}>
+					<div className={classes.sidebar}>
+						<Sidebar></Sidebar>
 					</div>
-				</MuiThemeProvider>
+					<div className={classes.content}>
+						<div>{switchRoutes}</div>
+						<Footer></Footer>
+					</div>
+				</div>
 			</div>
 		)
 	}
