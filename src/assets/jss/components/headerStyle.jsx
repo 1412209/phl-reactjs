@@ -5,7 +5,13 @@ const styles = (theme) => ({
 		width: '100%'
 	},
 	appBar: {
-		backgroundColor: 'rgba(0,0,0,.3)'
+		backgroundColor: 'rgba(0,0,0,.3)',
+		justifyContent: 'center',
+		transition: "all ease .4s",
+		height: "100%"
+	},
+	appBarScrolled: {
+		backgroundColor: 'rgba(0,0,0,.96)'
 	},
 	grow: {
 		flexGrow: 1,
